@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd" "mybatis-3-mapper.dtd" >
+<mapper namespace="ssm.blog.dao.BloggerDao">
+ 	
+ 	<resultMap type="Blogger" id="BloggerResult">
+ 		<id property="id" column="id"/>
+ 		<result property="userName" column="username"/>
+        <result property="password" column="password"/>
+        <result property="profile" column="profile"/>
+        <result property="nickName" column="nickname"/>
+        <result property="sign" column="sign"/>
+        <result property="imageName" column="imagename"/>
+ 	</resultMap>
+ 	
+ 	 <!--  定义字段集合 -->
+ 	<sql id="BloggerColumns">
+ 		id,username,password,profile,nickname,sign,imagename
+ 	</sql>
+ 	
+ 	<!-- 接口中getBloggerData 具体实现-->
+    <select id="getBloggerData" resultMap="BloggerResult">
+            select <include refid="BloggerColumns"/> from t_blogger where id = 1
+    </select>
+ 	
+</mapper>
